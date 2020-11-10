@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Store.Library
 {
-    public class Product
+    public class Product : IStock
     {
     private string name;
-    private string productID;
+    private string productId;
     private int currentStock;
     private double price;
     private int idSeed = 00001;
@@ -17,12 +17,32 @@ namespace Store.Library
         name = _name;
         currentStock = stock;
         price = _price;
-        productID = idSeed.ToString();
+        productId = idSeed.ToString();
         idSeed++;
     }
-    public void restock(int quantity)
-    {
-        this.currentStock += quantity;
+    public string getProductName()
+        {
+            return name;
+        }
+        public string getProductId()
+        {
+            return productId;
+        }
+        public int getProductStock()
+        {
+            return currentStock;
+        }
+        public double getProductPrice()
+        {
+            return price;
+        }
+
+        public void AddStock(int quantity)
+        {
+            currentStock += quantity;
+        }
+
     }
-}
+
+
 }

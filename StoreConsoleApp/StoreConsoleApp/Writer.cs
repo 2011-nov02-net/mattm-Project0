@@ -2,7 +2,7 @@
 using Figgle;
 using System.Collections.Generic;
 using System.Text;
-using Store.Library
+using Store.Library;
 
 namespace Store.ConsoleApp
 {
@@ -21,7 +21,7 @@ namespace Store.ConsoleApp
 
         public void listProducts(Product name)
         {
-            Console.WriteLine($"Product:{name.name}  ID:{name.productId")
+            Console.WriteLine($"Product:{name.getProductName()}  ID:{name.getProductId()} ");
         }
     }
 }
