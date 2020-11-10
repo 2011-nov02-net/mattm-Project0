@@ -1,7 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
+using Store.Library;
 
-namespace StoreConsoleApp
+
+
+
+namespace Store.ConsoleApp
 {
     class Program
     {
@@ -26,7 +31,7 @@ namespace StoreConsoleApp
                 writer.writeStatement("You probably shouldn't be here then.");
             }
 
-
+            Product productA = new Product("TBD3000", 500, 26.50);
 
         }
     }

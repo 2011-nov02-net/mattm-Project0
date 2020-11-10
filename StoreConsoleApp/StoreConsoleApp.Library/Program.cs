@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Libraries
+namespace Store.Library
 {
     class Program
     {

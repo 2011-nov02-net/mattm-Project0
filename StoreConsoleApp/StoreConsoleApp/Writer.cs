@@ -2,8 +2,9 @@
 using Figgle;
 using System.Collections.Generic;
 using System.Text;
+using Store.Library
 
-namespace StoreConsoleApp
+namespace Store.ConsoleApp
 {
     class Writer
     {
@@ -16,6 +17,11 @@ namespace StoreConsoleApp
         public void writeTitle(string title)
         {
             Console.WriteLine(FiggleFonts.Standard.Render(title));
+        }
+
+        public void listProducts(Product name)
+        {
+            Console.WriteLine($"Product:{name.name}  ID:{name.productId")
         }
     }
 }
