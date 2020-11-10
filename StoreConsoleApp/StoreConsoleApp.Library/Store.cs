@@ -32,6 +32,11 @@ namespace Store.Library
             return storeCity + storeState;
         }
 
+        public List<Product> getProductList()
+        {
+            return storeProductList;
+        }
+
 
     }
 }

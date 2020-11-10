@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Store.Library
 {
-    class Customer
+    public class Customer
     {
         private int customerIDSeed = 000001;
         private string firstName;
@@ -15,12 +15,12 @@ namespace Store.Library
         private int favStore;
 
 
-        public Customer(string first, string last, int phone, string _adress)
+        public Customer(string first, string last)
         {
             firstName = first;
             lastName = last;
-            phoneNumber = phone;
-            adress = _adress;
+            // phoneNumber = phone;
+            // adress = _adress;
             customerID = customerIDSeed.ToString();
             customerIDSeed++;
 
@@ -28,6 +28,11 @@ namespace Store.Library
         public void addFavStore(int store)
         {
             this.favStore = store;
+        }
+
+        public string getName()
+        {
+            return ($"{firstName} {lastName}");
         }
     }
 }

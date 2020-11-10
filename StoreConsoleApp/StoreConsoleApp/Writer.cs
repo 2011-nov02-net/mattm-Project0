@@ -19,9 +19,23 @@ namespace Store.ConsoleApp
             Console.WriteLine(FiggleFonts.Standard.Render(title));
         }
 
-        public void listProducts(Product name)
+        public void listProducts(StoreLocation store)
         {
-            Console.WriteLine($"Product:{name.getProductName()}  ID:{name.getProductId()} ");
+            foreach (Product prod in store.getProductList())
+            {
+                Console.WriteLine($"Product:{prod.getProductName()}  ID:{prod.getProductId()} Stock:{prod.getProductStock()} Price:{prod.getProductPrice()} \n");
+            }
+            
+        }
+
+        public void listCustomers(Company company) 
+        {
+            int i = 1;
+            foreach (Customer customer in company.getCustomerList())
+            {
+                Console.WriteLine($"{i}. {customer.getName()}");
+                i++;
+            }
         }
     }
 }

@@ -9,11 +9,13 @@ namespace Store.Library
     {
         private string name;
         private List<StoreLocation> storeList;
+        private List<Customer> customerList;
 
         public Company(string _name)
         {
             name = _name;
             storeList = new List<StoreLocation>();
+            customerList = new List<Customer>();
 
             
         }
@@ -21,6 +23,11 @@ namespace Store.Library
         public void addStore(StoreLocation store)
         {
             storeList.Add(store);
+        }
+
+        public void addCustomer(Customer customer)
+        {
+            customerList.Add(customer);
         }
         public string getCompanyName()
         {
@@ -34,6 +41,15 @@ namespace Store.Library
                 returnArr.Add(store);  
             }
             return returnArr;
+        }
+        public List<Customer> getCustomerList()
+        {
+            List<Customer> returnList = new List<Customer>();
+            foreach (Customer customer in customerList)
+            {
+                returnList.Add(customer);
+            }
+            return returnList;
         }
     }
 }
