@@ -13,6 +13,7 @@ namespace Store.Library
         private int phoneNumber;
         private string adress;
         private int favStore;
+        private List<Order> orderHistory;
 
 
         public Customer(string first, string last)
@@ -23,6 +24,8 @@ namespace Store.Library
             // adress = _adress;
             customerID = customerIDSeed.ToString();
             customerIDSeed++;
+            List<Order> orderHistory = new List<Order>();
+
 
         }
         public void addFavStore(int store)
