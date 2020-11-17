@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.ConsoleApp", "StoreCo
 		{7830EF2F-92B2-4F10-A201-55C455171F57} = {7830EF2F-92B2-4F10-A201-55C455171F57}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Library", "StoreConsoleApp.Library\Store.Library.csproj", "{8410925C-483C-4811-951E-60FE2E2F76EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.BusinessLogicLibrary", "StoreConsoleApp.Library\Store.BusinessLogicLibrary.csproj", "{8410925C-483C-4811-951E-60FE2E2F76EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{7830EF2F-92B2-4F10-A201-55C455171F57}"
 EndProject

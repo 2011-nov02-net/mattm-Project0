@@ -12,7 +12,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
-	  <ProjectReference Include="..\StoreConsoleApp.Library\Store.Library.csproj" />
+	  <ProjectReference Include="..\StoreConsoleApp.Library\Store.BusinessLogicLibrary.csproj" />
 	  <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />
   </ItemGroup>
 

@@ -4,6 +4,12 @@ using System.Globalization;
 using System.Linq;
 using Store.Library;
 using System.Collections.Generic;
+using DataAccessLibrary;
+using DataAccessLibrary.Repository;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Text.Json;
+using System.IO;
 
 
 
@@ -12,70 +18,45 @@ namespace Store.ConsoleApp
 {
     class Program
     {
+        static DbContextOptions<project0dbContext> s_dbContextOptions;
         static void Main(string[] args)
         {
             Writer writer = new Writer();
-            Company acme = new Company("Acme Co.");           
-            Customer activeUser;           
-            writer.writeTitle($"{acme.getCompanyName().ToUpper()}");
-            writer.writeStatement("Welcome to Acme's digital storefront!");
-            writer.writeStatement("Who are you? \n [1] customer \n [2] employee?");
-            string userChoice = Console.ReadLine();
-            if (userChoice == "1")
+            Menu menu = new Menu();
+
+            using var logStream = new StreamWriter("ef-logs.txt");
+            var optionsBuilder = new DbContextOptionsBuilder<project0dbContext>();
+            optionsBuilder.UseSqlServer(getConnectionString());
+            optionsBuilder.LogTo(logStream.Write, LogLevel.Debug);
+            s_dbContextOptions = optionsBuilder.Options;
+            using var dbContext = new project0dbContext(s_dbContextOptions);
+            Repository repo = new Repository(dbContext);
+
+            menu.displayMenu(repo);
+
+            static string getConnectionString()
             {
-                writer.writeStatement("Our digital storefront is currently under construction. Please check back soon!");
-                writer.writeStatement("Our current offerings!");
-                writer.writeStatement("Are you a returning customer? [y]es, [n]o, or E[x]it");
-                string newOrExisting = "tbd";
-                while (newOrExisting != "y" || newOrExisting != "n")
+                string path = "C:/Users/mgm21/Desktop/revature/mattm-Project0/connectionstring.json";
+                string json;
+                try
                 {
-                    newOrExisting = Console.ReadLine().Trim().ToLower(); ;
-                    if (newOrExisting == "y")
-                    {
-                        writer.writeStatement("Who are you?");
-                        writer.listCustomers(acme);
-                        string customerSelection = Console.ReadLine();
-                        int customerNumber = Int32.Parse(customerSelection) - 1;
-                        activeUser = acme.getCustomerList().ElementAt(customerNumber);
-                        writer.writeStatement($"Welcome back {activeUser.getName()}!");
-
-                    }
-                    else if (newOrExisting == "n")
-                    {
-                        writer.writeStatement("Great! Welcome to Acme! Let's get you signed up. What is your first name?");
-                        string newFirstName = Console.ReadLine();
-                        writer.writeStatement("What is your last name?");
-                        string newLastName = Console.ReadLine();
-                        Customer newCustomer = new Customer(newFirstName, newLastName);
-                        acme.addCustomer(newCustomer);
-                        writer.writeStatement("Great, lets get to some shopping!");
-                        writer.writeStatement("Which of our excellent products catches your eyes ? (Please select the product by ID)");
-
-
-                    }
-                    else if (newOrExisting == "x");
-                    else
-                    {
-                        writer.writeStatement("Please enter 'y'n 'n' or 'x'.");
-                    }
-                    writer.writeStatement("Have a nice day!");
-                    return;
+                    json = File.ReadAllText(path);
+      
                 }
-            }
-            else if (userChoice == "2")
-            {
-                writer.writeStatement("Still under construction, get back to work.");
-            }
-
-            else
-            {
-                writer.writeStatement("You probably shouldn't be here then.");
+                catch (IOException)
+                {
+                    Console.WriteLine($"required file {path} not found. should just be the connection string in quotes.");
+                    throw;
+                }
+                string connectionString = JsonSerializer.Deserialize<string>(json);
+                return connectionString;
             }
 
-           
-           
 
-          
+
+
+
+
 
 
         }
