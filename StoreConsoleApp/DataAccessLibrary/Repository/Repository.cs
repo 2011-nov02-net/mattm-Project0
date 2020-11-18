@@ -143,9 +143,9 @@ namespace DataAccessLibrary.Repository
             return orderList;
         }
 
-        /// <summary> Method to return a list of orders with info on orders by location </summary>
+        /// <summary> Method to return a list of orders </summary>
 
-        public IEnumerable<DataAccessLibrary.Order> getOrdersByLocations()
+        public List<DataAccessLibrary.Order> getOrdersByLocation(Location location)
         {
             var orders = dbContext.Orders.ToList();
             return orders;

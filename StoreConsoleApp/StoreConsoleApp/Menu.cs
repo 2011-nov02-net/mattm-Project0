@@ -181,14 +181,27 @@ namespace Store.ConsoleApp
                         }
                         break;
                     case "4":
-                        IEnumerable<DataAccessLibrary.Order> ordersByLocation = repo.getOrdersByLocations();
-                        var ordersgrouped = ordersByLocation.GroupBy(order => order.LocationId);
-                        IWrite.writeStatement("Location ID   Total Orders");
-                        foreach (var x in ordersgrouped)
-                        {
-                            IWrite.writeStatement($"{x.Key} {x.Count()} ");
-                            
+                        IWrite.writeStatement("Which location order history would you like to see?");
+                        IEnumerable<DataAccessLibrary.Location> locList = repo.getLocations();
+                        count = 0;
+                        foreach (var x in locList)
+                        { 
+
+                            count++;
+                        IWrite.writeStatement($"{count}. Acme {x.City}: {x.Address}, {x.City}, {x.State}, {x.Country}");
+
                         }
+                        int locChoice = Int32.Parse(Console.ReadLine().Trim());
+                        Location searchLocation = locList.ElementAt(locChoice - 1);
+                        var ordersByLocation = repo.getOrdersByLocation(searchLocation);
+                        count = 0;
+                        IWrite.writeStatement($"Acme {searchLocation.City} Prodcuts Order History:");
+                        foreach (var x in ordersByLocation)
+                        {                            
+                            IWrite.writeStatement($"Order ID: {x.OrderId} ProductID: {x.ProductId} Order Date: {x.OrderDate}");
+
+                        }
+                   
                         break;
                     case "x":
                         adminLoop = false;
