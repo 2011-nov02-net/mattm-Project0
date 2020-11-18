@@ -8,29 +8,30 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using DataAccessLibrary;
 using DataAccessLibrary.Repository;
+// using BusinessLibrary;
 
 
 namespace Store.ConsoleApp
 {
-    public class Menu
+    public class Menu : IWrite
     {
         private bool loop = true;
         private bool shoppingLoop = true;
         DataAccessLibrary.Customer activeUser = new DataAccessLibrary.Customer();
-        Writer menuWriter = new Writer();
+        
         int count = 0;
         /// <summary> Method to display the original menu </summary>
         /// <params> Takes in a repository object</params>
         public bool displayMenu(Repository repo)
         {
 
-            menuWriter.writeTitle($"Acme Co.".ToUpper());
-            menuWriter.writeStatement("Welcome to Acme's online ordering system!");
+            IWrite.writeTitle($"Acme Co.".ToUpper());
+            IWrite.writeStatement("Welcome to Acme's online ordering system!");
             //loops until user chooses to exit or takes a path
             while (loop)
             {
                              
-                menuWriter.writeStatement("Are you a returning customer? [y]es, [n]o, or E[x]it. [z] to access system administration");
+                IWrite.writeStatement("Are you a returning customer? [y]es, [n]o, or E[x]it. [z] to access system administration");
                 string input = Console.ReadLine().Trim().ToLower();
                 switch (input)
                 {
@@ -65,7 +66,7 @@ namespace Store.ConsoleApp
             //loops until user chooses not to make an order
             while (shoppingLoop)
             {
-                menuWriter.writeStatement("Would you like to place an order? y/n");
+                IWrite.writeStatement("Would you like to place an order? y/n");
                 string shopChoice = Console.ReadLine().Trim().ToLower();
                 if(shopChoice == "y")
                 {
@@ -73,7 +74,7 @@ namespace Store.ConsoleApp
                 }
                 else
                 {
-                    menuWriter.writeStatement("Thanks for visiting Acme Online, please come again soon!");
+                    IWrite.writeStatement("Thanks for visiting Acme Online, please come again soon!");
                     shoppingLoop = false;
                 }
             }
@@ -90,7 +91,7 @@ namespace Store.ConsoleApp
         /// <params> Takes in a repository object</params>
         public void returningCustomer(Repository repo)
         {
-            menuWriter.writeStatement("What is your name? (No Middle)");
+            IWrite.writeStatement("What is your name? (No Middle)");
             string userName = Console.ReadLine().Trim();
             string[] customerSearchName = userName.Split(" ");
             DataAccessLibrary.Customer searchCustomer = new DataAccessLibrary.Customer();
@@ -99,11 +100,11 @@ namespace Store.ConsoleApp
             activeUser = repo.getcustomerByName(searchCustomer).FirstOrDefault();
             if (activeUser != null)
             {
-                menuWriter.writeStatement($"Welcome back {activeUser.FirstName} {activeUser.LastName}!");
+                IWrite.writeStatement($"Welcome back {activeUser.FirstName} {activeUser.LastName}!");
             }
             else
             {
-                menuWriter.writeStatement("I'm sorry, we couldn't find your information.");
+                IWrite.writeStatement("I'm sorry, we couldn't find your information.");
             }
         }
 
@@ -111,16 +112,16 @@ namespace Store.ConsoleApp
         /// <params> Takes in a repository object</params>
         public void newCustomer(Repository repo)
         {
-            menuWriter.writeStatement("Great! Welcome to Acme! Let's get you signed up. What is your first name?");
+            IWrite.writeStatement("Great! Welcome to Acme! Let's get you signed up. What is your first name?");
             string newFirstName = Console.ReadLine();
-            menuWriter.writeStatement("What is your last name?");
+            IWrite.writeStatement("What is your last name?");
             string newLastName = Console.ReadLine();
             DataAccessLibrary.Customer newCustomer = new DataAccessLibrary.Customer();
             newCustomer.FirstName = newFirstName;
             newCustomer.LastName = newLastName;
             repo.addCustomer(newCustomer);
             activeUser = repo.getcustomerByName(newCustomer).FirstOrDefault();
-            menuWriter.writeStatement($"You have been sucesffuly added, {activeUser.FirstName} {activeUser.LastName}");
+            IWrite.writeStatement($"You have been sucesffuly added, {activeUser.FirstName} {activeUser.LastName}");
 
         }
 
@@ -131,8 +132,8 @@ namespace Store.ConsoleApp
             bool adminLoop = true;
             while (adminLoop)
             {
-                menuWriter.writeStatement("\nWhat would you like to do?");
-                menuWriter.writeStatement("[1] View Customers \n[2] View Locations \n[3] View Order History by Customer \n[4] View Order History by Location \nE[x]it");
+                IWrite.writeStatement("\nWhat would you like to do?");
+                IWrite.writeStatement("[1] View Customers \n[2] View Locations \n[3] View Order History by Customer \n[4] View Order History by Location \nE[x]it");
                 string adminInput = Console.ReadLine().Trim().ToLower();
                 switch (adminInput)
                 {
@@ -141,8 +142,9 @@ namespace Store.ConsoleApp
                         count = 0;
                         foreach (var x in customerList)
                         {
-                            menuWriter.writeStatement($"{count}. {x.FirstName} {x.LastName}");
                             count++;
+                            IWrite.writeStatement($"{count}. {x.FirstName} {x.LastName}");
+                            
                         }
                         break;
                     case "2":
@@ -150,26 +152,41 @@ namespace Store.ConsoleApp
                         count = 0;
                         foreach (var x in locationList)
                         {
-                            menuWriter.writeStatement($"{count}. Acme {x.City}: {x.Address}, {x.City}, {x.State}, {x.Country}");
                             count++;
+                            IWrite.writeStatement($"{count}. Acme {x.City}: {x.Address}, {x.City}, {x.State}, {x.Country}");
+                           
                         }
                         break;
                     case "3":
-                        var ordersByCustomer = repo.getOrdersByCustomers();
+                        IWrite.writeStatement("Which customer order history would you like to see?");
+                        IEnumerable<DataAccessLibrary.Customer> list = repo.getCustomers();
                         count = 0;
-                        menuWriter.writeStatement("Customer ID   Total Orders");
+                        foreach (var x in list)
+                        {
+                            count++;
+                            IWrite.writeStatement($"{count}. {x.FirstName} {x.LastName}");
+                           
+                        }
+                        int customerChoice = Int32.Parse(Console.ReadLine().Trim());
+                        Customer searchCustomer = list.ElementAt(customerChoice-1);
+                        var ordersByCustomer = repo.getOrdersByCustomer(searchCustomer);
+                        count = 0;
+                        IWrite.writeStatement($"{searchCustomer.FirstName} {searchCustomer.LastName} Order History:");
                         foreach (var x in ordersByCustomer)
                         {
-                            Console.WriteLine($"{x.CustomerId}            {x.orders}" );
+                            var details = repo.getOrderDetails(x.Id);
+                            var date = details.ElementAt(0).OrderDate;
+                            IWrite.writeStatement($"Order ID: {x.Id} Order Date: {date}");
+
                         }
                         break;
                     case "4":
                         IEnumerable<DataAccessLibrary.Order> ordersByLocation = repo.getOrdersByLocations();
                         var ordersgrouped = ordersByLocation.GroupBy(order => order.LocationId);
-                        menuWriter.writeStatement("Location ID   Total Orders");
+                        IWrite.writeStatement("Location ID   Total Orders");
                         foreach (var x in ordersgrouped)
                         {
-                            menuWriter.writeStatement($"{x.Key} {x.Count()} ");
+                            IWrite.writeStatement($"{x.Key} {x.Count()} ");
                             
                         }
                         break;
@@ -193,20 +210,20 @@ namespace Store.ConsoleApp
         {
             bool morePurchases = true;
             int orderID = repo.createOrder(activeUser);
-            menuWriter.writeStatement("What store would you like to order from?");
+            IWrite.writeStatement("What store would you like to order from?");
             // lists current locations and displays to user
             IEnumerable<DataAccessLibrary.Location> locationList = repo.getLocations();
             count = 0;
             foreach (var x in locationList)
             {
                 count++;
-                menuWriter.writeStatement($"[{count}] Acme {x.City}: {x.Address}, {x.City}, {x.State}, {x.Country}");
+                IWrite.writeStatement($"[{count}] Acme {x.City}: {x.Address}, {x.City}, {x.State}, {x.Country}");
                 
             }
             // takes user input as the current location, checks if user would like to add that store as their default (default store not fully implemented yet)
             int storeChoice = Int32.Parse(Console.ReadLine().Trim());
             DataAccessLibrary.Location chosenLocation = locationList.ElementAt<Location>(storeChoice);
-            menuWriter.writeStatement("Would you like to make this store your default? y/n");
+            IWrite.writeStatement("Would you like to make this store your default? y/n");
             string newDefault = Console.ReadLine().Trim().ToLower();
             if(newDefault == "y")
             {
@@ -216,19 +233,19 @@ namespace Store.ConsoleApp
             // loops through purchasing path as user adds more products to order
             while (morePurchases)
             {
-                menuWriter.writeStatement("What product would you like to buy?");
+                IWrite.writeStatement("What product would you like to buy?");
                 IEnumerable<DataAccessLibrary.Product> productList = repo.getProducts();
                 count = 0;
                 foreach (var x in productList)
                 {
                     count++;
-                    menuWriter.writeStatement($"[{count}] {x.Name}: ${x.Price}");
+                    IWrite.writeStatement($"[{count}] {x.Name}: ${x.Price}");
 
                 }
                 int productChoice = Int32.Parse(Console.ReadLine().Trim());
                 Order newOrder = new Order();
                 newOrder.ProductId = productList.ElementAt<DataAccessLibrary.Product>(productChoice).Id;
-                menuWriter.writeStatement("How many would you like?");
+                IWrite.writeStatement("How many would you like?");
                 int purchaseQuantity = Int32.Parse(Console.ReadLine());
                 newOrder.Quantity = purchaseQuantity;
                 //boolean returns false is quantity too low
@@ -236,9 +253,9 @@ namespace Store.ConsoleApp
                 //checks if an order was sucessfully placed
                 if (!orderPlaced)
                 {
-                    menuWriter.writeStatement("We're sorry but the product and quantity you requested is not in stock.");
+                    IWrite.writeStatement("We're sorry but the product and quantity you requested is not in stock.");
                 }
-                menuWriter.writeStatement("Would you like to buy anything else? y/n");
+                IWrite.writeStatement("Would you like to buy anything else? y/n");
                 string buyMore = Console.ReadLine().Trim().ToLower();
                 if(buyMore == "n")
                 {

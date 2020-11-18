@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-
 using System.Collections.Generic;
 using DataAccessLibrary;
 using DataAccessLibrary.Repository;
@@ -21,7 +20,6 @@ namespace Store.ConsoleApp
         static DbContextOptions<project0dbContext> s_dbContextOptions;
         static void Main(string[] args)
         {
-            Writer writer = new Writer();
             Menu menu = new Menu();
 
             using var logStream = new StreamWriter("ef-logs.txt");

@@ -13,6 +13,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
 	  <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />
+	  <ProjectReference Include="..\BusinessLibrary\BusinessLibrary.csproj" />
   </ItemGroup>
 
 </Project>

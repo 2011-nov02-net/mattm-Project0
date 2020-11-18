@@ -131,20 +131,16 @@ namespace DataAccessLibrary.Repository
 
         }
 
-        public class ordersByCustomers
+  
+
+  
+
+  
+
+        public List<DataAccessLibrary.CustomerOrder> getOrdersByCustomer(Customer customer)
         {
-            public int CustomerId { get; set; }
-            public int orders { get; set; }
-
-        }
-
-        /// <summary> Method to return a list of total orders grouped by Customer ID </summary>
-
-        public IQueryable<ordersByCustomers> getOrdersByCustomers()
-        {
-            var orders = dbContext.CustomerOrders.GroupBy(x => x.CustomerId).Select(x => new ordersByCustomers{ CustomerId = x.Key, orders = x.Count() });
-            return orders;
-
+            var orderList = dbContext.CustomerOrders.Where(x => x.CustomerId == customer.Id).ToList();
+            return orderList;
         }
 
         /// <summary> Method to return a list of orders with info on orders by location </summary>
@@ -174,6 +170,13 @@ namespace DataAccessLibrary.Repository
         {
            dbContext.LocationStocks.Where(x => x.ProductId == productId && x.LocationId == locationId).First().Quantity -= Quantity;
             dbContext.SaveChanges();
+
+        }
+        public List<Order> getOrderDetails(int orderId)
+        {
+            var details = dbContext.Orders.Where(x => x.OrderId == orderId).ToList();
+            return details;
+
         }
 
 
