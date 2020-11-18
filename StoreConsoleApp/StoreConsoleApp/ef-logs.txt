@@ -1,0 +1,605 @@
+info: 11/18/2020 10:58:27.701 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 5.0.0 initialized 'project0dbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: Nonedbug: 11/18/2020 10:58:27.731 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Customer>()'dbug: 11/18/2020 10:58:27.825 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Customer>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Customer.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Customer.FavoriteStore (Nullable<int>) FK Index, 1], [Property: Customer.FirstName (string) Required MaxLength(50), 2], [Property: Customer.LastName (string) Required MaxLength(50), 3], }
+              SELECT c.Id, c.FavoriteStore, c.FirstName, c.LastName
+              FROM Customers AS c), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Customer>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:58:27.862 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:58:27.865 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (21ms).dbug: 11/18/2020 10:58:27.868 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:28.241 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:28.244 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]info: 11/18/2020 10:58:28.304 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]dbug: 11/18/2020 10:58:28.324 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.343 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:28.346 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:58:28.348 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:28.351 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:31.870 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Location>()'dbug: 11/18/2020 10:58:31.875 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Location>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Location.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Location.Address (string) Required MaxLength(120), 1], [Property: Location.City (string) Required MaxLength(30), 2], [Property: Location.Country (string) MaxLength(30), 3], [Property: Location.State (string) MaxLength(30), 4], }
+              SELECT l.Id, l.Address, l.City, l.Country, l.State
+              FROM Locations AS l), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Location>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:58:31.875 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:58:31.875 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:58:31.875 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:31.876 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:31.876 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[Address], [l].[City], [l].[Country], [l].[State]
+      FROM [Locations] AS [l]info: 11/18/2020 10:58:31.913 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[Address], [l].[City], [l].[Country], [l].[State]
+      FROM [Locations] AS [l]dbug: 11/18/2020 10:58:31.919 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Location' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:31.934 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Location' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:31.934 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Location' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:31.934 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Location' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:31.934 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Location' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:31.934 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Location' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:31.935 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:58:31.935 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:31.935 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:36.123 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:58:36.123 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:58:36.123 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:36.123 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:36.123 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]info: 11/18/2020 10:58:36.142 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]dbug: 11/18/2020 10:58:36.142 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:58:36.143 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:36.143 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.385 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<CustomerOrder>()
+          .Where(x => x.CustomerId == __customer_Id_0)'dbug: 11/18/2020 10:58:39.421 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<CustomerOrder>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: CustomerOrder.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: CustomerOrder.CustomerId (int) Required FK Index, 1], }
+              SELECT c.Id, c.CustomerId
+              FROM CustomerOrders AS c
+              WHERE c.CustomerId == @__customer_Id_0), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, CustomerOrder>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:58:39.424 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:58:39.424 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:58:39.426 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.426 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.428 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__customer_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[CustomerId]
+      FROM [CustomerOrders] AS [c]
+      WHERE [c].[CustomerId] = @__customer_Id_0info: 11/18/2020 10:58:39.493 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (66ms) [Parameters=[@__customer_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[CustomerId]
+      FROM [CustomerOrders] AS [c]
+      WHERE [c].[CustomerId] = @__customer_Id_0dbug: 11/18/2020 10:58:39.497 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'CustomerOrder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:39.501 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:58:39.501 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.501 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.502 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Order>()
+          .Where(x => x.OrderId == __orderId_0)'dbug: 11/18/2020 10:58:39.504 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Order>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Order.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Order.LocationId (int) Required FK Index, 1], [Property: Order.OrderDate (Nullable<DateTime>) ValueGenerated.OnAdd, 2], [Property: Order.OrderId (int) Required FK Index, 3], [Property: Order.ProductId (int) Required FK Index, 4], [Property: Order.Quantity (int) Required ValueGenerated.OnAdd, 5], }
+              SELECT o.Id, o.LocationId, o.OrderDate, o.OrderId, o.ProductId, o.Quantity
+              FROM Orders AS o
+              WHERE o.OrderId == @__orderId_0), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Order>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:58:39.505 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:58:39.505 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:58:39.505 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.505 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.505 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__orderId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [o].[Id], [o].[LocationId], [o].[OrderDate], [o].[OrderId], [o].[ProductId], [o].[Quantity]
+      FROM [Orders] AS [o]
+      WHERE [o].[OrderId] = @__orderId_0info: 11/18/2020 10:58:39.837 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (332ms) [Parameters=[@__orderId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [o].[Id], [o].[LocationId], [o].[OrderDate], [o].[OrderId], [o].[ProductId], [o].[Quantity]
+      FROM [Orders] AS [o]
+      WHERE [o].[OrderId] = @__orderId_0dbug: 11/18/2020 10:58:39.842 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:39.854 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:58:39.854 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:39.854 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:51.152 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:58:51.153 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:58:51.153 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:51.153 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:51.153 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[Address], [l].[City], [l].[Country], [l].[State]
+      FROM [Locations] AS [l]info: 11/18/2020 10:58:51.175 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[Address], [l].[City], [l].[Country], [l].[State]
+      FROM [Locations] AS [l]dbug: 11/18/2020 10:58:51.175 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:58:51.175 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:51.175 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:56.684 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Order>()'dbug: 11/18/2020 10:58:56.688 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Order>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Order.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Order.LocationId (int) Required FK Index, 1], [Property: Order.OrderDate (Nullable<DateTime>) ValueGenerated.OnAdd, 2], [Property: Order.OrderId (int) Required FK Index, 3], [Property: Order.ProductId (int) Required FK Index, 4], [Property: Order.Quantity (int) Required ValueGenerated.OnAdd, 5], }
+              SELECT o.Id, o.LocationId, o.OrderDate, o.OrderId, o.ProductId, o.Quantity
+              FROM Orders AS o), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Order>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:58:56.688 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:58:56.688 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:58:56.688 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:56.689 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:56.689 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [o].[Id], [o].[LocationId], [o].[OrderDate], [o].[OrderId], [o].[ProductId], [o].[Quantity]
+      FROM [Orders] AS [o]info: 11/18/2020 10:58:56.712 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [o].[Id], [o].[LocationId], [o].[OrderDate], [o].[OrderId], [o].[ProductId], [o].[Quantity]
+      FROM [Orders] AS [o]dbug: 11/18/2020 10:58:56.713 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:56.713 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:56.713 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:56.713 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:56.713 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:56.713 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:56.713 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:58:56.713 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:58:56.713 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:58:56.713 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.110 CoreEventId.ValueGenerated[10808] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      'project0dbContext' generated a temporary value for the property 'Id.Customer'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:24.116 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Customer' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:24.117 CoreEventId.SaveChangesStarting[10004] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges starting for 'project0dbContext'.dbug: 11/18/2020 10:59:24.118 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'project0dbContext'.dbug: 11/18/2020 10:59:24.130 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'project0dbContext'.dbug: 11/18/2020 10:59:24.134 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.134 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.135 RelationalEventId.TransactionStarting[20209] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Beginning transaction with isolation level 'Unspecified'.dbug: 11/18/2020 10:59:24.160 RelationalEventId.TransactionStarted[20200] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Began transaction with isolation level 'ReadCommitted'.dbug: 11/18/2020 10:59:24.191 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:24.191 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:24.192 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 50), @p2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      INSERT INTO [Customers] ([FavoriteStore], [FirstName], [LastName])
+      VALUES (@p0, @p1, @p2);
+      SELECT [Id]
+      FROM [Customers]
+      WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();info: 11/18/2020 10:59:24.219 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (28ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 50), @p2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      INSERT INTO [Customers] ([FavoriteStore], [FirstName], [LastName])
+      VALUES (@p0, @p1, @p2);
+      SELECT [Id]
+      FROM [Customers]
+      WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();dbug: 11/18/2020 10:59:24.227 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The foreign key property 'Customer.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.dbug: 11/18/2020 10:59:24.231 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:24.232 RelationalEventId.TransactionCommitting[20210] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committing transaction.dbug: 11/18/2020 10:59:24.295 RelationalEventId.TransactionCommitted[20202] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committed transaction.dbug: 11/18/2020 10:59:24.295 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.295 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.296 RelationalEventId.TransactionDisposed[20204] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Disposing transaction.dbug: 11/18/2020 10:59:24.302 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'Customer' tracked by 'project0dbContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:24.303 CoreEventId.SaveChangesCompleted[10005] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges completed for 'project0dbContext' with 1 entities written to the database.dbug: 11/18/2020 10:59:24.305 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Customer>()
+          .Where(x => x.FirstName.Contains(__searchCustomer_FirstName_0) && x.LastName.Contains(__searchCustomer_LastName_1))'dbug: 11/18/2020 10:59:24.336 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Customer>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Customer.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Customer.FavoriteStore (Nullable<int>) FK Index, 1], [Property: Customer.FirstName (string) Required MaxLength(50), 2], [Property: Customer.LastName (string) Required MaxLength(50), 3], }
+              SELECT c.Id, c.FavoriteStore, c.FirstName, c.LastName
+              FROM Customers AS c
+              WHERE ((@__searchCustomer_FirstName_0 LIKE N'') || (CHARINDEX(@__searchCustomer_FirstName_0, c.FirstName) > 0)) && ((@__searchCustomer_LastName_1 LIKE N'') || (CHARINDEX(@__searchCustomer_LastName_1, c.LastName) > 0))), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Customer>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:59:24.339 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:24.339 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:24.339 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.339 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.339 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__searchCustomer_FirstName_0='?' (Size = 50), @__searchCustomer_LastName_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]
+      WHERE ((@__searchCustomer_FirstName_0 LIKE N'') OR (CHARINDEX(@__searchCustomer_FirstName_0, [c].[FirstName]) > 0)) AND ((@__searchCustomer_LastName_1 LIKE N'') OR (CHARINDEX(@__searchCustomer_LastName_1, [c].[LastName]) > 0))info: 11/18/2020 10:59:24.356 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (17ms) [Parameters=[@__searchCustomer_FirstName_0='?' (Size = 50), @__searchCustomer_LastName_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SELECT [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]
+      WHERE ((@__searchCustomer_FirstName_0 LIKE N'') OR (CHARINDEX(@__searchCustomer_FirstName_0, [c].[FirstName]) > 0)) AND ((@__searchCustomer_LastName_1 LIKE N'') OR (CHARINDEX(@__searchCustomer_LastName_1, [c].[LastName]) > 0))dbug: 11/18/2020 10:59:24.356 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:24.356 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:24.356 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.615 CoreEventId.ValueGenerated[10808] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      'project0dbContext' generated a temporary value for the property 'Id.CustomerOrder'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:26.618 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'CustomerOrder' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:26.618 CoreEventId.SaveChangesStarting[10004] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges starting for 'project0dbContext'.dbug: 11/18/2020 10:59:26.618 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'project0dbContext'.dbug: 11/18/2020 10:59:26.619 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'project0dbContext'.dbug: 11/18/2020 10:59:26.619 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.619 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.619 RelationalEventId.TransactionStarting[20209] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Beginning transaction with isolation level 'Unspecified'.dbug: 11/18/2020 10:59:26.639 RelationalEventId.TransactionStarted[20200] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Began transaction with isolation level 'ReadCommitted'.dbug: 11/18/2020 10:59:26.639 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:26.639 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:26.639 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      INSERT INTO [CustomerOrders] ([CustomerId])
+      VALUES (@p0);
+      SELECT [Id]
+      FROM [CustomerOrders]
+      WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();info: 11/18/2020 10:59:26.663 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (24ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      INSERT INTO [CustomerOrders] ([CustomerId])
+      VALUES (@p0);
+      SELECT [Id]
+      FROM [CustomerOrders]
+      WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();dbug: 11/18/2020 10:59:26.664 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The foreign key property 'CustomerOrder.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.dbug: 11/18/2020 10:59:26.665 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:26.665 RelationalEventId.TransactionCommitting[20210] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committing transaction.dbug: 11/18/2020 10:59:26.684 RelationalEventId.TransactionCommitted[20202] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committed transaction.dbug: 11/18/2020 10:59:26.684 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.684 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.684 RelationalEventId.TransactionDisposed[20204] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Disposing transaction.dbug: 11/18/2020 10:59:26.684 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'CustomerOrder' tracked by 'project0dbContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:26.684 CoreEventId.SaveChangesCompleted[10005] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges completed for 'project0dbContext' with 1 entities written to the database.dbug: 11/18/2020 10:59:26.686 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<CustomerOrder>()
+          .Max(x => x.Id)'dbug: 11/18/2020 10:59:26.690 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<int>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> 0
+              SELECT MAX(c.Id)
+              FROM CustomerOrders AS c), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )
+          .Single()'dbug: 11/18/2020 10:59:26.691 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:26.691 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:26.691 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.691 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.691 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT MAX([c].[Id])
+      FROM [CustomerOrders] AS [c]info: 11/18/2020 10:59:26.707 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT MAX([c].[Id])
+      FROM [CustomerOrders] AS [c]dbug: 11/18/2020 10:59:26.708 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:26.708 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.708 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.709 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:26.709 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:26.709 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.709 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.709 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[Address], [l].[City], [l].[Country], [l].[State]
+      FROM [Locations] AS [l]info: 11/18/2020 10:59:26.728 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[Address], [l].[City], [l].[Country], [l].[State]
+      FROM [Locations] AS [l]dbug: 11/18/2020 10:59:26.728 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:26.728 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:26.728 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.441 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Customer>()
+          .Where(x => x.Id == __customer_Id_0)
+          .FirstOrDefault()'dbug: 11/18/2020 10:59:50.444 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Customer>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Customer.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Customer.FavoriteStore (Nullable<int>) FK Index, 1], [Property: Customer.FirstName (string) Required MaxLength(50), 2], [Property: Customer.LastName (string) Required MaxLength(50), 3], }
+              SELECT TOP(1) c.Id, c.FavoriteStore, c.FirstName, c.LastName
+              FROM Customers AS c
+              WHERE c.Id == @__customer_Id_0), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Customer>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )
+          .SingleOrDefault()'dbug: 11/18/2020 10:59:50.444 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:50.444 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:50.444 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.444 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.445 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__customer_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]
+      WHERE [c].[Id] = @__customer_Id_0info: 11/18/2020 10:59:50.469 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (25ms) [Parameters=[@__customer_Id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [c].[Id], [c].[FavoriteStore], [c].[FirstName], [c].[LastName]
+      FROM [Customers] AS [c]
+      WHERE [c].[Id] = @__customer_Id_0dbug: 11/18/2020 10:59:50.470 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:50.470 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.470 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.470 CoreEventId.SaveChangesStarting[10004] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges starting for 'project0dbContext'.dbug: 11/18/2020 10:59:50.470 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'project0dbContext'.dbug: 11/18/2020 10:59:50.471 CoreEventId.PropertyChangeDetected[10802] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The unchanged property 'Customer.FavoriteStore' was detected as changed and will be marked as modified. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.dbug: 11/18/2020 10:59:50.471 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'Customer' tracked by 'project0dbContext' changed state from 'Unchanged' to 'Modified'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.471 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The foreign key property 'Customer.FavoriteStore' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.dbug: 11/18/2020 10:59:50.472 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'project0dbContext'.dbug: 11/18/2020 10:59:50.472 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.472 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.472 RelationalEventId.TransactionStarting[20209] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Beginning transaction with isolation level 'Unspecified'.dbug: 11/18/2020 10:59:50.485 RelationalEventId.TransactionStarted[20200] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Began transaction with isolation level 'ReadCommitted'.dbug: 11/18/2020 10:59:50.489 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:50.489 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:50.489 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      UPDATE [Customers] SET [FavoriteStore] = @p0
+      WHERE [Id] = @p1;
+      SELECT @@ROWCOUNT;info: 11/18/2020 10:59:50.509 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (20ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      UPDATE [Customers] SET [FavoriteStore] = @p0
+      WHERE [Id] = @p1;
+      SELECT @@ROWCOUNT;dbug: 11/18/2020 10:59:50.509 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:50.509 RelationalEventId.TransactionCommitting[20210] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committing transaction.dbug: 11/18/2020 10:59:50.847 RelationalEventId.TransactionCommitted[20202] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committed transaction.dbug: 11/18/2020 10:59:50.847 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.847 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.847 RelationalEventId.TransactionDisposed[20204] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Disposing transaction.dbug: 11/18/2020 10:59:50.848 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'Customer' tracked by 'project0dbContext' changed state from 'Modified' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.848 CoreEventId.SaveChangesCompleted[10005] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges completed for 'project0dbContext' with 1 entities written to the database.dbug: 11/18/2020 10:59:50.848 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<Product>()'dbug: 11/18/2020 10:59:50.855 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<Product>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Product.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Product.Name (string) Required MaxLength(120), 1], [Property: Product.Price (decimal) Required, 2], }
+              SELECT p.Id, p.Name, p.Price
+              FROM Products AS p), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Product>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:59:50.855 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:50.855 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:50.855 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.856 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.856 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[Id], [p].[Name], [p].[Price]
+      FROM [Products] AS [p]info: 11/18/2020 10:59:50.871 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[Id], [p].[Name], [p].[Price]
+      FROM [Products] AS [p]dbug: 11/18/2020 10:59:50.876 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.882 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.883 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.883 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.883 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.883 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.883 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.883 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Product' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:50.883 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:50.883 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:50.883 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:58.664 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<LocationStock>()
+          .Where(x => x.ProductId == __productId_0 && x.LocationId == __locationId_1)'dbug: 11/18/2020 10:59:58.668 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<LocationStock>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: LocationStock.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: LocationStock.LocationId (int) Required FK Index, 1], [Property: LocationStock.ProductId (int) Required FK Index, 2], [Property: LocationStock.Quantity (int) Required, 3], }
+              SELECT l.Id, l.LocationId, l.ProductId, l.Quantity
+              FROM LocationStock AS l
+              WHERE (l.ProductId == @__productId_0) && (l.LocationId == @__locationId_1)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, LocationStock>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )'dbug: 11/18/2020 10:59:58.668 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 10:59:58.668 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 10:59:58.668 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:58.668 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:58.668 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__productId_0='?' (DbType = Int32), @__locationId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[LocationId], [l].[ProductId], [l].[Quantity]
+      FROM [LocationStock] AS [l]
+      WHERE ([l].[ProductId] = @__productId_0) AND ([l].[LocationId] = @__locationId_1)info: 11/18/2020 10:59:58.689 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (21ms) [Parameters=[@__productId_0='?' (DbType = Int32), @__locationId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[LocationId], [l].[ProductId], [l].[Quantity]
+      FROM [LocationStock] AS [l]
+      WHERE ([l].[ProductId] = @__productId_0) AND ([l].[LocationId] = @__locationId_1)dbug: 11/18/2020 10:59:58.691 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'LocationStock' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 10:59:58.695 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 10:59:58.695 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 10:59:58.695 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:05.100 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 11:00:05.100 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 11:00:05.100 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:05.100 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:05.100 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[Id], [p].[Name], [p].[Price]
+      FROM [Products] AS [p]info: 11/18/2020 11:00:05.140 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (40ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[Id], [p].[Name], [p].[Price]
+      FROM [Products] AS [p]dbug: 11/18/2020 11:00:05.140 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 11:00:05.140 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:05.140 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.261 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 11:00:07.262 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 11:00:07.262 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.262 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.262 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__productId_0='?' (DbType = Int32), @__locationId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[LocationId], [l].[ProductId], [l].[Quantity]
+      FROM [LocationStock] AS [l]
+      WHERE ([l].[ProductId] = @__productId_0) AND ([l].[LocationId] = @__locationId_1)info: 11/18/2020 11:00:07.311 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (49ms) [Parameters=[@__productId_0='?' (DbType = Int32), @__locationId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [l].[Id], [l].[LocationId], [l].[ProductId], [l].[Quantity]
+      FROM [LocationStock] AS [l]
+      WHERE ([l].[ProductId] = @__productId_0) AND ([l].[LocationId] = @__locationId_1)dbug: 11/18/2020 11:00:07.311 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 11:00:07.311 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.312 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.313 CoreEventId.QueryCompilationStarting[10111] (Microsoft.EntityFrameworkCore.Query) 
+      Compiling query expression: 
+      'DbSet<LocationStock>()
+          .Where(x => x.ProductId == __productId_0 && x.LocationId == __locationId_1)
+          .First()'dbug: 11/18/2020 11:00:07.315 CoreEventId.QueryExecutionPlanned[10107] (Microsoft.EntityFrameworkCore.Query) 
+      Generated query execution expression: 
+      'queryContext => new SingleQueryingEnumerable<LocationStock>(
+          (RelationalQueryContext)queryContext, 
+          RelationalCommandCache.SelectExpression(
+              Projection Mapping:
+                  EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: LocationStock.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: LocationStock.LocationId (int) Required FK Index, 1], [Property: LocationStock.ProductId (int) Required FK Index, 2], [Property: LocationStock.Quantity (int) Required, 3], }
+              SELECT TOP(1) l.Id, l.LocationId, l.ProductId, l.Quantity
+              FROM LocationStock AS l
+              WHERE (l.ProductId == @__productId_0) && (l.LocationId == @__locationId_1)), 
+          Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, LocationStock>, 
+          DataAccessLibrary.project0dbContext, 
+          False, 
+          False
+      )
+          .Single()'dbug: 11/18/2020 11:00:07.315 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 11:00:07.315 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 11:00:07.315 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.315 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.315 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@__productId_0='?' (DbType = Int32), @__locationId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [l].[Id], [l].[LocationId], [l].[ProductId], [l].[Quantity]
+      FROM [LocationStock] AS [l]
+      WHERE ([l].[ProductId] = @__productId_0) AND ([l].[LocationId] = @__locationId_1)info: 11/18/2020 11:00:07.365 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (49ms) [Parameters=[@__productId_0='?' (DbType = Int32), @__locationId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [l].[Id], [l].[LocationId], [l].[ProductId], [l].[Quantity]
+      FROM [LocationStock] AS [l]
+      WHERE ([l].[ProductId] = @__productId_0) AND ([l].[LocationId] = @__locationId_1)dbug: 11/18/2020 11:00:07.365 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 11:00:07.365 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.365 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.365 CoreEventId.SaveChangesStarting[10004] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges starting for 'project0dbContext'.dbug: 11/18/2020 11:00:07.365 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'project0dbContext'.dbug: 11/18/2020 11:00:07.368 CoreEventId.PropertyChangeDetected[10802] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The unchanged property 'LocationStock.Quantity' was detected as changed and will be marked as modified. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.dbug: 11/18/2020 11:00:07.368 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'LocationStock' tracked by 'project0dbContext' changed state from 'Unchanged' to 'Modified'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 11:00:07.369 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'project0dbContext'.dbug: 11/18/2020 11:00:07.369 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.369 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.369 RelationalEventId.TransactionStarting[20209] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Beginning transaction with isolation level 'Unspecified'.dbug: 11/18/2020 11:00:07.397 RelationalEventId.TransactionStarted[20200] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Began transaction with isolation level 'ReadCommitted'.dbug: 11/18/2020 11:00:07.397 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 11:00:07.397 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 11:00:07.397 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      UPDATE [LocationStock] SET [Quantity] = @p0
+      WHERE [Id] = @p1;
+      SELECT @@ROWCOUNT;info: 11/18/2020 11:00:07.428 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (30ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      UPDATE [LocationStock] SET [Quantity] = @p0
+      WHERE [Id] = @p1;
+      SELECT @@ROWCOUNT;dbug: 11/18/2020 11:00:07.428 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 11:00:07.428 RelationalEventId.TransactionCommitting[20210] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committing transaction.dbug: 11/18/2020 11:00:07.470 RelationalEventId.TransactionCommitted[20202] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committed transaction.dbug: 11/18/2020 11:00:07.470 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.470 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.470 RelationalEventId.TransactionDisposed[20204] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Disposing transaction.dbug: 11/18/2020 11:00:07.470 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'LocationStock' tracked by 'project0dbContext' changed state from 'Modified' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 11:00:07.470 CoreEventId.SaveChangesCompleted[10005] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges completed for 'project0dbContext' with 1 entities written to the database.dbug: 11/18/2020 11:00:07.470 CoreEventId.ValueGenerated[10808] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      'project0dbContext' generated a temporary value for the property 'Id.Order'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 11:00:07.473 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'project0dbContext' started tracking 'Order' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 11:00:07.473 CoreEventId.SaveChangesStarting[10004] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges starting for 'project0dbContext'.dbug: 11/18/2020 11:00:07.473 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'project0dbContext'.dbug: 11/18/2020 11:00:07.474 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'project0dbContext'.dbug: 11/18/2020 11:00:07.474 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.474 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.474 RelationalEventId.TransactionStarting[20209] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Beginning transaction with isolation level 'Unspecified'.dbug: 11/18/2020 11:00:07.511 RelationalEventId.TransactionStarted[20200] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Began transaction with isolation level 'ReadCommitted'.dbug: 11/18/2020 11:00:07.512 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.dbug: 11/18/2020 11:00:07.512 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (0ms).dbug: 11/18/2020 11:00:07.512 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      INSERT INTO [Orders] ([LocationId], [OrderId], [ProductId], [Quantity])
+      VALUES (@p0, @p1, @p2, @p3);
+      SELECT [Id], [OrderDate]
+      FROM [Orders]
+      WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();info: 11/18/2020 11:00:07.558 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (47ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET NOCOUNT ON;
+      INSERT INTO [Orders] ([LocationId], [OrderId], [ProductId], [Quantity])
+      VALUES (@p0, @p1, @p2, @p3);
+      SELECT [Id], [OrderDate]
+      FROM [Orders]
+      WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();dbug: 11/18/2020 11:00:07.560 CoreEventId.ForeignKeyChangeDetected[10803] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      The foreign key property 'Order.Id' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see property values.dbug: 11/18/2020 11:00:07.561 RelationalEventId.DataReaderDisposing[20300] (Microsoft.EntityFrameworkCore.Database.Command) 
+      A data reader was disposed.dbug: 11/18/2020 11:00:07.561 RelationalEventId.TransactionCommitting[20210] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committing transaction.dbug: 11/18/2020 11:00:07.599 RelationalEventId.TransactionCommitted[20202] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Committed transaction.dbug: 11/18/2020 11:00:07.599 RelationalEventId.ConnectionClosing[20002] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closing connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.599 RelationalEventId.ConnectionClosed[20003] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Closed connection to database 'project-0-db' on server 'tcp:marnien-revature-db.database.windows.net,1433'.dbug: 11/18/2020 11:00:07.599 RelationalEventId.TransactionDisposed[20204] (Microsoft.EntityFrameworkCore.Database.Transaction) 
+      Disposing transaction.dbug: 11/18/2020 11:00:07.601 CoreEventId.StateChanged[10807] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      An entity of type 'Order' tracked by 'project0dbContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.dbug: 11/18/2020 11:00:07.601 CoreEventId.SaveChangesCompleted[10005] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges completed for 'project0dbContext' with 1 entities written to the database.dbug: 11/18/2020 11:00:17.762 CoreEventId.ContextDisposed[10407] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      'project0dbContext' disposed.

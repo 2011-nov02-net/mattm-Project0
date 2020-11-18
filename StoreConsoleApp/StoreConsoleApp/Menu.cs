@@ -48,7 +48,7 @@ namespace Store.ConsoleApp
                         break;
                     case "z":
                         manageStore(repo);
-                        loop = false;
+                        //loop = false;
                         break;
                     default:
                         break;
