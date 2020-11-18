@@ -87,26 +87,26 @@ namespace DataAccessLibrary
 
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.Property(e => e.OrderDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
+                entity.Property(e => e.Quantity).HasDefaultValueSql("((1))");
+
                 entity.HasOne(d => d.Location)
-                    .WithMany()
+                    .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.LocationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Orders__Location__160F4887");
 
                 entity.HasOne(d => d.OrderNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Orders__OrderId__151B244E");
 
                 entity.HasOne(d => d.Product)
-                    .WithMany()
+                    .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Orders__ProductI__17F790F9");

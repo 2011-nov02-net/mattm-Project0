@@ -33,6 +33,7 @@ namespace Store.ConsoleApp
             Repository repo = new Repository(dbContext);
 
             menu.displayMenu(repo);
+            menu.shoppingMenu(repo);
 
             static string getConnectionString()
             {

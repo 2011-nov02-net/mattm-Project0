@@ -10,6 +10,7 @@ namespace DataAccessLibrary
         public Location()
         {
             Customers = new HashSet<Customer>();
+            Orders = new HashSet<Order>();
         }
 
         public int Id { get; set; }
@@ -19,5 +20,6 @@ namespace DataAccessLibrary
         public string Country { get; set; }
 
         public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

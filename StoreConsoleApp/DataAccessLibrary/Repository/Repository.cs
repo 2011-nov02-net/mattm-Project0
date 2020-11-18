@@ -67,6 +67,48 @@ namespace DataAccessLibrary.Repository
             }).ToList();
         }
 
+        public IEnumerable<DataAccessLibrary.Product> getProducts()
+        {
+            var productList = dbContext.Products.ToList();
+            return productList.Select(x => new DataAccessLibrary.Product()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Price = x.Price
+            }).ToList();
+        }
+
+        public void setFavoriteStore(Customer customer, Location location)
+        {
+            var query = dbContext.Customers.Where(x => x.Id == customer.Id).FirstOrDefault();
+            query.FavoriteStore = location.Id;
+            dbContext.SaveChanges();
+        }
+
+        public int createOrder(Customer customer)
+        {
+            CustomerOrder newCustomerOrder = new CustomerOrder();
+            newCustomerOrder.CustomerId = customer.Id;
+            dbContext.CustomerOrders.Add(newCustomerOrder);
+            dbContext.SaveChanges();
+            int newestOrder = dbContext.CustomerOrders.Max(x => x.Id);
+            return newestOrder;
+        }
+
+        public void addProductToOrder(int orderId, Order order, Location location)
+        {
+            Order newOrder = new Order();
+            newOrder.OrderId = orderId;
+            newOrder.LocationId = location.Id;
+            newOrder.ProductId = order.ProductId;
+            newOrder.Quantity = order.Quantity;
+            dbContext.Orders.Add(newOrder);
+            dbContext.SaveChanges();
+
+        }
+
+
+
       
 
 

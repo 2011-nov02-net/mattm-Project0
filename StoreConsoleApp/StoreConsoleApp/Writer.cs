@@ -28,14 +28,14 @@ namespace Store.ConsoleApp
             
         }
 
-        public void listCustomers(Company company) 
-        {
-            int i = 1;
-            foreach (Customer customer in company.getCustomerList())
-            {
-                Console.WriteLine($"{i}. {customer.getName()}");
-                i++;
-            }
-        }
+        //public void listCustomers(Company company) 
+        //{
+        //    int i = 1;
+        //    foreach (Customer customer in company.getCustomerList())
+        //    {
+        //        Console.WriteLine($"{i}. {customer.getName()}");
+        //        i++;
+        //    }
+        //}
     }
 }

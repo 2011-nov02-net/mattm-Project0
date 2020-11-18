@@ -45,13 +45,15 @@ CustomerId INT NOT Null
 
 --DROP TABLE IF EXISTS Orders;
 CREATE TABLE Orders (
+Id INT IDENTITY NOT NULL PRIMARY KEY,
 OrderId INT NOT NULL 
 	FOREIGN KEY REFERENCES CustomerOrders (Id),
 LocationId INT NOT NULL
 	FOREIGN KEY REFERENCES Locations (Id),
 OrderDate DATETIME NULL DEFAULT GETDATE(),
 ProductId INT NOT NULL 
-	FOREIGN KEY REFERENCES Products (Id)
+	FOREIGN KEY REFERENCES Products (Id),
+Quantity INT NOT NULL Default(1) Check(Quantity > 0)
 );
 
 INSERT INTO Customers (FirstName, LastName) VALUES
@@ -83,5 +85,7 @@ INSERT INTO Locations (Address, City, State, Country) VALUES
 	('237 Mill Street', 'Phoenix', 'AZ', 'USA'),
 	('673 Ocean Place', 'Miami', 'FL', 'USA'),
 	('1 Park Place', 'New York', 'NY', 'USA');
+
+
 
 

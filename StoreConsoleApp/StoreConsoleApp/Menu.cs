@@ -13,16 +13,16 @@ using DataAccessLibrary.Repository;
 
 namespace Store.ConsoleApp
 {
-    public class Menu 
+    public class Menu
     {
-        public static bool loop = true;
+        private bool loop = true;
+        private bool shoppingLoop = true;
         DataAccessLibrary.Customer activeUser = new DataAccessLibrary.Customer();
         Writer menuWriter = new Writer();
-        Company acme = new Company("Acme Co.");
         int count = 0;
         public bool displayMenu(Repository repo)
         {
-            
+
             menuWriter.writeTitle($"Acme Co.".ToUpper());
             menuWriter.writeStatement("Welcome to Acme's online ordering system!");
             while (loop)
@@ -33,16 +33,18 @@ namespace Store.ConsoleApp
                 switch (input)
                 {
                     case "y":
-                        returningCustomer(repo);  
+                        returningCustomer(repo);
+                        loop = false;
                         break;
                     case "n":
                         newCustomer(repo);
+                        loop = false;
                         break;
                     case "x":
                         loop = false;
                         break;
                     case "z":
-                        manage(repo);
+                        manageStore(repo);
                         break;
                     default:
                         break;
@@ -53,6 +55,32 @@ namespace Store.ConsoleApp
             return false;
 
         }
+
+        public void shoppingMenu(Repository repo)
+        {
+            while (shoppingLoop)
+            {
+                menuWriter.writeStatement("Would you like to place an order? y/n");
+                string shopChoice = Console.ReadLine().Trim().ToLower();
+                if(shopChoice == "y")
+                {
+                    newOrder(repo);
+                }
+                else
+                {
+                    menuWriter.writeStatement("Thanks for visiting Acme Online, please come again soon!");
+                    shoppingLoop = false;
+                }
+            }
+        }
+    
+
+
+    
+
+
+
+
 
         public void returningCustomer(Repository repo)
         {
@@ -88,7 +116,7 @@ namespace Store.ConsoleApp
 
         }
 
-        public void manage(Repository repo)
+        public void manageStore(Repository repo)
         {
             bool adminLoop = true;
             while (adminLoop)
@@ -132,5 +160,61 @@ namespace Store.ConsoleApp
             
 
         }
+
+        public void newOrder(Repository repo)
+        {
+            bool morePurchases = true;
+            int orderID = repo.createOrder(activeUser);
+            menuWriter.writeStatement("What store would you like to order from?");
+            IEnumerable<DataAccessLibrary.Location> locationList = repo.getLocations();
+            count = 0;
+            foreach (var x in locationList)
+            {
+                count++;
+                menuWriter.writeStatement($"[{count}] Acme {x.City}: {x.Address}, {x.City}, {x.State}, {x.Country}");
+                
+            }
+            int storeChoice = Int32.Parse(Console.ReadLine().Trim());
+            DataAccessLibrary.Location chosenLocation = locationList.ElementAt<Location>(storeChoice);
+            menuWriter.writeStatement("Would you like to make this store your default? y/n");
+            string newDefault = Console.ReadLine().Trim().ToLower();
+            if(newDefault == "y")
+            {
+                repo.setFavoriteStore(activeUser, chosenLocation);
+
+            }
+            while (morePurchases)
+            {
+                menuWriter.writeStatement("What product would you like to buy?");
+                IEnumerable<DataAccessLibrary.Product> productList = repo.getProducts();
+                count = 0;
+                foreach (var x in productList)
+                {
+                    count++;
+                    menuWriter.writeStatement($"[{count}] {x.Name}: ${x.Price}");
+
+                }
+                int productChoice = Int32.Parse(Console.ReadLine().Trim());
+                Order newOrder = new Order();
+                newOrder.ProductId = productList.ElementAt<DataAccessLibrary.Product>(productChoice).Id;
+                menuWriter.writeStatement("How many would you like?");
+                int purchaseQuantity = Int32.Parse(Console.ReadLine());
+                newOrder.Quantity = purchaseQuantity;
+                repo.addProductToOrder(orderID, newOrder, chosenLocation);
+                menuWriter.writeStatement("Would you like to buy anything else? y/n");
+                string buyMore = Console.ReadLine();
+                if(buyMore == "n")
+                {
+                    morePurchases = false;
+                }
+
+            }
+
+
+
+
+        }
     }
+
+    
 }

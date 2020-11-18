@@ -11,6 +11,8 @@ namespace DataAccessLibrary
         public int LocationId { get; set; }
         public DateTime? OrderDate { get; set; }
         public int ProductId { get; set; }
+        public int Quantity { get; set; }
+        public int Id { get; set; }
 
         public virtual Location Location { get; set; }
         public virtual CustomerOrder OrderNavigation { get; set; }
