@@ -145,8 +145,23 @@ namespace Store.ConsoleApp
                         }
                         break;
                     case "3":
+                        var ordersByCustomer = repo.getOrdersByCustomers();
+                        count = 0;
+                        menuWriter.writeStatement("Customer ID   Total Orders");
+                        foreach (var x in ordersByCustomer)
+                        {
+                            Console.WriteLine($"{x.CustomerId}            {x.orders}" );
+                        }
                         break;
-
+                    case "4":
+                        IEnumerable<DataAccessLibrary.Order> ordersByLocation = repo.getOrdersByLocations();
+                        var ordersgrouped = ordersByLocation.GroupBy(order => order.LocationId);
+                        foreach (var x in ordersgrouped)
+                        {
+                            menuWriter.writeStatement($"{x.Key} {x.Count()} ");
+                            
+                        }
+                        break;
                     case "x":
                         adminLoop = false;
                         break;

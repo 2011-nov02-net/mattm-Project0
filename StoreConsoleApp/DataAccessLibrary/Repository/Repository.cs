@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace DataAccessLibrary.Repository
 {
-    public class Repository 
+    public class Repository
     {
 
         private readonly project0dbContext dbContext;
@@ -22,7 +22,7 @@ namespace DataAccessLibrary.Repository
 
         public void addCustomer(DataAccessLibrary.Customer customer)
         {
-         
+
             dbContext.Customers.Add(customer);
             dbContext.SaveChanges();
 
@@ -39,7 +39,7 @@ namespace DataAccessLibrary.Repository
                 LastName = x.LastName,
                 FavoriteStore = x.FavoriteStore
             }).ToList();
-               
+
         }
 
         public IEnumerable<DataAccessLibrary.Customer> getcustomerByName(Customer searchCustomer)
@@ -107,9 +107,29 @@ namespace DataAccessLibrary.Repository
 
         }
 
+        public class ordersByCustomers
+        {
+            public int CustomerId { get; set; }
+            public int orders { get; set; }
+
+        }
+        public IQueryable<ordersByCustomers> getOrdersByCustomers()
+        {
+            var orders = dbContext.CustomerOrders.GroupBy(x => x.CustomerId).Select(x => new ordersByCustomers{ CustomerId = x.Key, orders = x.Count() });
+            return orders;
+
+        }
+
+        public IEnumerable<DataAccessLibrary.Order> getOrdersByLocations()
+        {
+            var orders = dbContext.Orders.ToList();
+            return orders;
+
+        }
 
 
-      
+
+
 
 
     }
