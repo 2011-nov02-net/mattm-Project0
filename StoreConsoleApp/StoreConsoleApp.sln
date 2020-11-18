@@ -8,9 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.ConsoleApp", "StoreCo
 		{7830EF2F-92B2-4F10-A201-55C455171F57} = {7830EF2F-92B2-4F10-A201-55C455171F57}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.BusinessLogicLibrary", "StoreConsoleApp.Library\Store.BusinessLogicLibrary.csproj", "{8410925C-483C-4811-951E-60FE2E2F76EE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{7830EF2F-92B2-4F10-A201-55C455171F57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLibrary", "DataAccessLibrary\DataAccessLibrary.csproj", "{7830EF2F-92B2-4F10-A201-55C455171F57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +20,6 @@ Global
 		{0456B76D-F729-49F4-A9BF-DA0784D5212E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0456B76D-F729-49F4-A9BF-DA0784D5212E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0456B76D-F729-49F4-A9BF-DA0784D5212E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8410925C-483C-4811-951E-60FE2E2F76EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8410925C-483C-4811-951E-60FE2E2F76EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8410925C-483C-4811-951E-60FE2E2F76EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8410925C-483C-4811-951E-60FE2E2F76EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7830EF2F-92B2-4F10-A201-55C455171F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7830EF2F-92B2-4F10-A201-55C455171F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7830EF2F-92B2-4F10-A201-55C455171F57}.Release|Any CPU.ActiveCfg = Release|Any CPU

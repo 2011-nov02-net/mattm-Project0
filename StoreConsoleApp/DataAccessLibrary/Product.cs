@@ -9,6 +9,7 @@ namespace DataAccessLibrary
     {
         public Product()
         {
+            LocationStocks = new HashSet<LocationStock>();
             Orders = new HashSet<Order>();
         }
 
@@ -16,6 +17,7 @@ namespace DataAccessLibrary
         public string Name { get; set; }
         public decimal Price { get; set; }
 
+        public virtual ICollection<LocationStock> LocationStocks { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }

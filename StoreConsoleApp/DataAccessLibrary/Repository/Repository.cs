@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using System.IO;
 using System.Linq;
+//using BusinessLogicLibrary;
 
 
 namespace DataAccessLibrary.Repository
@@ -20,6 +21,8 @@ namespace DataAccessLibrary.Repository
             dbContext = context;
         }
 
+        /// <summary> Method to add a new customer to the DB </summary>
+        /// <params> Takes in a customer object</params>
         public void addCustomer(DataAccessLibrary.Customer customer)
         {
 
@@ -27,7 +30,8 @@ namespace DataAccessLibrary.Repository
             dbContext.SaveChanges();
 
         }
-
+        /// <summary> Method to return a list of current Customers</summary>
+   
         public IEnumerable<DataAccessLibrary.Customer> getCustomers()
         {
             var customerList = dbContext.Customers.ToList();
@@ -41,7 +45,8 @@ namespace DataAccessLibrary.Repository
             }).ToList();
 
         }
-
+        /// <summary> Method to find a customer by name </summary>
+        /// <params> Takes in a customer object of the customer to be searched on</params>
         public IEnumerable<DataAccessLibrary.Customer> getcustomerByName(Customer searchCustomer)
         {
             var matchList = dbContext.Customers.Where(x => x.FirstName.Contains(searchCustomer.FirstName) && x.LastName.Contains(searchCustomer.LastName)).ToList();
@@ -49,11 +54,12 @@ namespace DataAccessLibrary.Repository
             return matchList;
         }
 
-        public void addProduct(Product newProduct)
+        public void addProduct(Product newProduct)        
         {
-
+            throw new NotImplementedException("Not Implemented");
+             
         }
-
+        /// <summary> Method to return a list of current locations </summary>
         public IEnumerable<DataAccessLibrary.Location> getLocations()
         {
             var locationList = dbContext.Locations.ToList();
@@ -66,7 +72,7 @@ namespace DataAccessLibrary.Repository
                 Country = x.Country
             }).ToList();
         }
-
+        /// <summary> Method to return a list of current products </summary>
         public IEnumerable<DataAccessLibrary.Product> getProducts()
         {
             var productList = dbContext.Products.ToList();
@@ -77,14 +83,16 @@ namespace DataAccessLibrary.Repository
                 Price = x.Price
             }).ToList();
         }
-
+        /// <summary> Method to set a customer's favorite store </summary>
+        /// <params> Takes in a customer object of the customer to be updated and the location to be set to Favorite</params>
         public void setFavoriteStore(Customer customer, Location location)
         {
             var query = dbContext.Customers.Where(x => x.Id == customer.Id).FirstOrDefault();
             query.FavoriteStore = location.Id;
             dbContext.SaveChanges();
         }
-
+        /// <summary> Method to create a new order </summary>
+        /// <params> Takes in a customer object of the customer making the order</params>
         public int createOrder(Customer customer)
         {
             CustomerOrder newCustomerOrder = new CustomerOrder();
@@ -94,16 +102,32 @@ namespace DataAccessLibrary.Repository
             int newestOrder = dbContext.CustomerOrders.Max(x => x.Id);
             return newestOrder;
         }
-
-        public void addProductToOrder(int orderId, Order order, Location location)
+        /// <summary> Method to add a product and quantity to the order </summary>
+        /// <params> Takes in a customer object of the customer to be searched on</params>
+        public bool addProductToOrder(int orderId, Order order, Location location)
         {
-            Order newOrder = new Order();
-            newOrder.OrderId = orderId;
-            newOrder.LocationId = location.Id;
-            newOrder.ProductId = order.ProductId;
-            newOrder.Quantity = order.Quantity;
-            dbContext.Orders.Add(newOrder);
-            dbContext.SaveChanges();
+            //checks if the required product has sufficient stock
+            bool inStock = checkInStock(order.ProductId, location.Id, order.Quantity);
+
+            // if in stock, order is updated and stock is reduced
+            if (inStock)
+            {
+                updateStock(order.ProductId, location.Id, order.Quantity);
+                Order newOrder = new Order();
+                newOrder.OrderId = orderId;
+                newOrder.LocationId = location.Id;
+                newOrder.ProductId = order.ProductId;
+                newOrder.Quantity = order.Quantity;
+                dbContext.Orders.Add(newOrder);
+                dbContext.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        
+            
 
         }
 
@@ -113,6 +137,9 @@ namespace DataAccessLibrary.Repository
             public int orders { get; set; }
 
         }
+
+        /// <summary> Method to return a list of total orders grouped by Customer ID </summary>
+
         public IQueryable<ordersByCustomers> getOrdersByCustomers()
         {
             var orders = dbContext.CustomerOrders.GroupBy(x => x.CustomerId).Select(x => new ordersByCustomers{ CustomerId = x.Key, orders = x.Count() });
@@ -120,11 +147,33 @@ namespace DataAccessLibrary.Repository
 
         }
 
+        /// <summary> Method to return a list of orders with info on orders by location </summary>
+
         public IEnumerable<DataAccessLibrary.Order> getOrdersByLocations()
         {
             var orders = dbContext.Orders.ToList();
             return orders;
 
+        }
+        /// <summary> Method to check a products stock against order requirement, returns true/false </summary>
+        /// <params> takes in thr required product id, the location id, and the quantity sought</params>
+        public bool checkInStock(int productId, int locationId, int Quantity)
+        {
+            int stockCheck = dbContext.LocationStocks.Where(x => x.ProductId == productId && x.LocationId == locationId).ToList().First().Quantity;
+            if(stockCheck >= Quantity)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void updateStock(int productId, int locationId, int Quantity)
+        {
+           dbContext.LocationStocks.Where(x => x.ProductId == productId && x.LocationId == locationId).First().Quantity -= Quantity;
+            dbContext.SaveChanges();
         }
 
 

@@ -21,6 +21,7 @@ namespace DataAccessLibrary
         public virtual DbSet<CustomerOrder> CustomerOrders { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<LocationStock> LocationStocks { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
 
@@ -83,6 +84,23 @@ namespace DataAccessLibrary
                 entity.Property(e => e.Country).HasMaxLength(30);
 
                 entity.Property(e => e.State).HasMaxLength(30);
+            });
+
+            modelBuilder.Entity<LocationStock>(entity =>
+            {
+                entity.ToTable("LocationStock");
+
+                entity.HasOne(d => d.Location)
+                    .WithMany(p => p.LocationStocks)
+                    .HasForeignKey(d => d.LocationId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LocationS__Locat__1F98B2C1");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.LocationStocks)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LocationS__Produ__208CD6FA");
             });
 
             modelBuilder.Entity<Order>(entity =>

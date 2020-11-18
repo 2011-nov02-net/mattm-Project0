@@ -2,7 +2,7 @@
 using Figgle;
 using System.Collections.Generic;
 using System.Text;
-using Store.Library;
+
 
 namespace Store.ConsoleApp
 {
@@ -19,7 +19,7 @@ namespace Store.ConsoleApp
             Console.WriteLine(FiggleFonts.Standard.Render(title));
         }
 
-        public void listProducts(StoreLocation store)
+       /* public void listProducts(StoreLocation store)
         {
             foreach (Product prod in store.getProductList())
             {
@@ -27,8 +27,9 @@ namespace Store.ConsoleApp
             }
             
         }
+       */
 
-        //public void listCustomers(Company company) 
+        // public void listCustomers(Company company) 
         //{
         //    int i = 1;
         //    foreach (Customer customer in company.getCustomerList())

@@ -56,6 +56,15 @@ ProductId INT NOT NULL
 Quantity INT NOT NULL Default(1) Check(Quantity > 0)
 );
 
+CREATE TABLE LocationStock (
+Id INT IDENTITY NOT NULL PRIMARY KEY,
+LocationId INT NOT NULL
+	FOREIGN KEY REFERENCES Locations (Id),
+ProductId INT NOT NULL
+	FOREIGN KEY REFERENCES Products (Id),
+Quantity INT NOT NULL DEFAULT(0)
+);
+
 INSERT INTO Customers (FirstName, LastName) VALUES
 	('Jim', 'Halpert'),
 	('Pam', 'Beasley'),
@@ -85,6 +94,57 @@ INSERT INTO Locations (Address, City, State, Country) VALUES
 	('237 Mill Street', 'Phoenix', 'AZ', 'USA'),
 	('673 Ocean Place', 'Miami', 'FL', 'USA'),
 	('1 Park Place', 'New York', 'NY', 'USA');
+
+INSERT INTO LocationStock (LocationId, ProducId, Quantity) VALUES
+	(1, 1, 100),
+	(1, 2, 100),
+	(1, 3, 100),
+	(1, 4, 100),
+	(1, 5, 100),
+	(1, 6, 100),
+	(1, 7, 100),
+	(1, 8, 100),
+	(2, 1, 100),
+	(2, 2, 100),
+	(2, 3, 100),
+	(2, 4, 100),
+	(2, 5, 100),
+	(2, 6, 100),
+	(2, 7, 100),
+	(2, 8, 100),
+	(3, 1, 100),
+	(3, 2, 100),
+	(3, 3, 100),
+	(3, 4, 100),
+	(3, 5, 100),
+	(3, 6, 100),
+	(3, 7, 100),
+	(3, 8, 100),
+	(4, 1, 100),
+	(4, 2, 100),
+	(4, 3, 100),
+	(4, 4, 100),
+	(4, 5, 100),
+	(4, 6, 100),
+	(4, 7, 100),
+	(4, 8, 100),
+	(5, 1, 100),
+	(5, 2, 100),
+	(5, 3, 100),
+	(5, 4, 100),
+	(5, 5, 100),
+	(5, 6, 100),
+	(5, 7, 100),
+	(5, 8, 100),
+	(6, 1, 100),
+	(6, 2, 100),
+	(6, 3, 100),
+	(6, 4, 100),
+	(6, 5, 100),
+	(6, 6, 100),
+	(6, 7, 100),
+	(6, 8, 100);
+
 
 
 

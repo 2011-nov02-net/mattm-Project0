@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Store.Library;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
@@ -20,14 +19,17 @@ namespace Store.ConsoleApp
         DataAccessLibrary.Customer activeUser = new DataAccessLibrary.Customer();
         Writer menuWriter = new Writer();
         int count = 0;
+        /// <summary> Method to display the original menu </summary>
+        /// <params> Takes in a repository object</params>
         public bool displayMenu(Repository repo)
         {
 
             menuWriter.writeTitle($"Acme Co.".ToUpper());
             menuWriter.writeStatement("Welcome to Acme's online ordering system!");
+            //loops until user chooses to exit or takes a path
             while (loop)
             {
-                // DataAccessLibrary.Customer activeUser;               
+                             
                 menuWriter.writeStatement("Are you a returning customer? [y]es, [n]o, or E[x]it. [z] to access system administration");
                 string input = Console.ReadLine().Trim().ToLower();
                 switch (input)
@@ -45,6 +47,7 @@ namespace Store.ConsoleApp
                         break;
                     case "z":
                         manageStore(repo);
+                        loop = false;
                         break;
                     default:
                         break;
@@ -55,9 +58,11 @@ namespace Store.ConsoleApp
             return false;
 
         }
-
+        /// <summary> Method to display shopping related menus </summary>
+        /// <params> Takes in a repository object</params>
         public void shoppingMenu(Repository repo)
         {
+            //loops until user chooses not to make an order
             while (shoppingLoop)
             {
                 menuWriter.writeStatement("Would you like to place an order? y/n");
@@ -81,7 +86,8 @@ namespace Store.ConsoleApp
 
 
 
-
+        /// <summary> Method to check if a customer exists in the DB and sets them to the active user </summary>
+        /// <params> Takes in a repository object</params>
         public void returningCustomer(Repository repo)
         {
             menuWriter.writeStatement("What is your name? (No Middle)");
@@ -101,6 +107,8 @@ namespace Store.ConsoleApp
             }
         }
 
+        /// <summary> Method to add a new User to the DB </summary>
+        /// <params> Takes in a repository object</params>
         public void newCustomer(Repository repo)
         {
             menuWriter.writeStatement("Great! Welcome to Acme! Let's get you signed up. What is your first name?");
@@ -116,6 +124,8 @@ namespace Store.ConsoleApp
 
         }
 
+        /// <summary> Method providing admin functionality for stores, checking customers, orders, etc </summary>
+        /// <params> Takes in a repository object</params>
         public void manageStore(Repository repo)
         {
             bool adminLoop = true;
@@ -156,6 +166,7 @@ namespace Store.ConsoleApp
                     case "4":
                         IEnumerable<DataAccessLibrary.Order> ordersByLocation = repo.getOrdersByLocations();
                         var ordersgrouped = ordersByLocation.GroupBy(order => order.LocationId);
+                        menuWriter.writeStatement("Location ID   Total Orders");
                         foreach (var x in ordersgrouped)
                         {
                             menuWriter.writeStatement($"{x.Key} {x.Count()} ");
@@ -176,11 +187,14 @@ namespace Store.ConsoleApp
 
         }
 
+        /// <summary> Method to create a new order in the DB and populate it and related tables </summary>
+        /// <params> Takes in a repository object</params>
         public void newOrder(Repository repo)
         {
             bool morePurchases = true;
             int orderID = repo.createOrder(activeUser);
             menuWriter.writeStatement("What store would you like to order from?");
+            // lists current locations and displays to user
             IEnumerable<DataAccessLibrary.Location> locationList = repo.getLocations();
             count = 0;
             foreach (var x in locationList)
@@ -189,6 +203,7 @@ namespace Store.ConsoleApp
                 menuWriter.writeStatement($"[{count}] Acme {x.City}: {x.Address}, {x.City}, {x.State}, {x.Country}");
                 
             }
+            // takes user input as the current location, checks if user would like to add that store as their default (default store not fully implemented yet)
             int storeChoice = Int32.Parse(Console.ReadLine().Trim());
             DataAccessLibrary.Location chosenLocation = locationList.ElementAt<Location>(storeChoice);
             menuWriter.writeStatement("Would you like to make this store your default? y/n");
@@ -198,6 +213,7 @@ namespace Store.ConsoleApp
                 repo.setFavoriteStore(activeUser, chosenLocation);
 
             }
+            // loops through purchasing path as user adds more products to order
             while (morePurchases)
             {
                 menuWriter.writeStatement("What product would you like to buy?");
@@ -215,9 +231,15 @@ namespace Store.ConsoleApp
                 menuWriter.writeStatement("How many would you like?");
                 int purchaseQuantity = Int32.Parse(Console.ReadLine());
                 newOrder.Quantity = purchaseQuantity;
-                repo.addProductToOrder(orderID, newOrder, chosenLocation);
+                //boolean returns false is quantity too low
+                bool orderPlaced = repo.addProductToOrder(orderID, newOrder, chosenLocation);
+                //checks if an order was sucessfully placed
+                if (!orderPlaced)
+                {
+                    menuWriter.writeStatement("We're sorry but the product and quantity you requested is not in stock.");
+                }
                 menuWriter.writeStatement("Would you like to buy anything else? y/n");
-                string buyMore = Console.ReadLine();
+                string buyMore = Console.ReadLine().Trim().ToLower();
                 if(buyMore == "n")
                 {
                     morePurchases = false;
