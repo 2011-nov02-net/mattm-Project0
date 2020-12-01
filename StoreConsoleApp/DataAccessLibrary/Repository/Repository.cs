@@ -125,17 +125,9 @@ namespace DataAccessLibrary.Repository
             else
             {
                 return false;
-            }
-        
-            
+            }  
 
         }
-
-  
-
-  
-
-  
 
         public List<DataAccessLibrary.CustomerOrder> getOrdersByCustomer(Customer customer)
         {
@@ -178,15 +170,5 @@ namespace DataAccessLibrary.Repository
             return details;
 
         }
-
-
-
-
-
-
     }
-
-    
-        
-    
 }
